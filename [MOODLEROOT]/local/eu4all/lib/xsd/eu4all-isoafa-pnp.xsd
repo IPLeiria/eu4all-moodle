@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2008 EU4ALL (University of York) -->
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" 
+  xmlns:eu4all="isoafa_pnp" 
+  xmlns:eu4all_0="isoafa_vocab" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  ecore:nsPrefix="eu4all" 
+  ecore:package="eu4all_isoafa_pnp" 
+  targetNamespace="isoafa_pnp"
+  elementFormDefault="qualified">
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="Ecore.xsd"/>
+  <xsd:import namespace="isoafa_vocab" schemaLocation="eu4all-isoafa-vocab.xsd"/>
+  <!-- added for eu4all contexts-->
+  <xsd:element name="context" type="eu4all:contextElementType"/>
+ 
+  <xsd:element  name="AccessForAllUser" type="eu4all:AccessForAllUser"/>
+  <xsd:element  name="Application" type="eu4all:Application"/>
+  <xsd:element  name="Application_Parameter" type="eu4all:Application_Parameter"/>
+  <xsd:element  name="Display" type="eu4all:Display"/>
+  <xsd:element  name="Screen_Reader" type="eu4all:Screen_Reader"/>
+  <xsd:element  name="Screen_Enhancement" type="eu4all:Screen_Enhancement"/>
+  <xsd:element  name="Text_Reading_Highlight" type="eu4all:Text_Reading_Highlight"/>
+  <xsd:element  name="Braille" type="eu4all:Braille"/>
+  <xsd:element  name="Tactile" type="eu4all:Tactile"/>
+  <xsd:element  name="Visual_Alert" type="eu4all:Visual_Alert"/>
+  <xsd:element  name="Structural_Presentation" type="eu4all:Structural_Presentation"/>
+  <xsd:element  name="Font_Face" type="eu4all:Font_Face"/>
+  <xsd:element  name="Control" type="eu4all:Control"/>
+  <xsd:element  name="Keyboard_Enhancement" type="eu4all:Keyboard_Enhancement"/>
+  <xsd:element  name="Onscreen_Keyboard" type="eu4all:Onscreen_Keyboard"/>
+  <xsd:element  name="Alternative_Keyboard" type="eu4all:Alternative_Keyboard"/>
+  <xsd:element  name="Mouse_Emulation" type="eu4all:Mouse_Emulation"/>
+  <xsd:element  name="Alternative_Pointing" type="eu4all:Alternative_Pointing"/>
+  <xsd:element  name="Voice_Recognition" type="eu4all:Voice_Recognition"/>
+  <xsd:element  name="Coded_Input" type="eu4all:Coded_Input"/>
+  <xsd:element  name="Prediction" type="eu4all:Prediction"/>
+  <xsd:element  name="Structural_Navigation" type="eu4all:Structural_Navigation"/>
+  <xsd:element  name="Sticky_Keys" type="eu4all:Sticky_Keys"/>
+  <xsd:element  name="Repeat_Keys" type="eu4all:Repeat_Keys"/>
+  <xsd:element  name="Slow_Keys" type="eu4all:Slow_Keys"/>
+  <xsd:element  name="Debounce_Keys" type="eu4all:Debounce_Keys"/>
+  <xsd:element  name="Point_and_Click_Selection" type="eu4all:Point_and_Click_Selection"/>
+  <xsd:element  name="Point_and_Dwell_Selection" type="eu4all:Point_and_Dwell_Selection"/>
+  <xsd:element  name="Automatic_Scanning" type="eu4all:Automatic_Scanning"/>
+  <xsd:element  name="Inverse_Scanning" type="eu4all:Inverse_Scanning"/>
+  <xsd:element  name="Directed_Scanning" type="eu4all:Directed_Scanning"/>
+  <xsd:element  name="Code_Selection" type="eu4all:Code_Selection"/>
+  <xsd:element  name="Resizable_Keys" type="eu4all:Resizable_Keys"/>
+  <xsd:element  name="Relative_Pointing" type="eu4all:Relative_Pointing"/>
+  <xsd:element  name="Dwell_Select" type="eu4all:Dwell_Select"/>
+  <xsd:element  name="Command_and_Control" type="eu4all:Command_and_Control"/>
+  <xsd:element  name="Code_Termination" type="eu4all:Code_Termination"/>
+  <xsd:element  name="Switch_Assignment" type="eu4all:Switch_Assignment"/>
+  <xsd:element  name="Content" type="eu4all:Content"/>
+  <xsd:element  name="Alternative" type="eu4all:Adaptation_Preference_Abstract"/>
+  <xsd:element  name="Enhancement" type="eu4all:Adaptation_Preference_Abstract"/>
+  <xsd:element  name="Colour" type="eu4all:Colour"/>
+
+  <!-- context definition rebuild-->
+  <xsd:complexType name="AccessForAllUser">
+    <xsd:sequence>
+      <xsd:element ref="eu4all:context" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="schemaVersion" type="eu4all:schemaVersionType"/>
+    <xsd:anyAttribute namespace="##other" processContents="strict"/>
+  </xsd:complexType>
+  <xsd:complexType name="contextElementType">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="display" type="eu4all:Display"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="control" type="eu4all:Control"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" maxOccurs="unbounded" name="content" type="eu4all:Content"/>
+      <xsd:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute  name="language" type="eu4all_0:ISO_Standard_6392T"/>
+    <xsd:attribute name="identifier"  type="xsd:ID" use="required"/>
+    <xsd:attribute name="external"  type="xsd:anyURI"/>
+    <xsd:anyAttribute namespace="##other" processContents="strict"/>
+  </xsd:complexType>
+  <xsd:simpleType name="schemaVersionType">
+    <xsd:restriction base="ecore:EString">
+      <xsd:pattern value="[0-9]+\.[0-9]+\.[0-9]+"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!--xsd:complexType name="AccessForAllUser">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="display" type="eu4all:Display"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="control" type="eu4all:Control"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="content" type="eu4all:Content"/>
+    </xsd:sequence>
+    <xsd:attribute  name="language" type="eu4all_0:ISO_Standard_6392T"/>
+  </xsd:complexType-->
+  <xsd:complexType name="Application">
+    <xsd:sequence>
+      <xsd:element ecore:name="application_parameter" ecore:resolveProxies="true" maxOccurs="unbounded" name="application_parameter" type="eu4all:Application_Parameter"/>
+    </xsd:sequence>
+    <xsd:attribute name="name" type="ecore:EString" use="required"/>
+    <xsd:attribute name="version" type="ecore:EString"/>
+    <xsd:attribute ecore:name="application_priority"  name="application_priority" type="ecore:EInt"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Application_Parameter" name="Application_Parameter">
+    <xsd:attribute name="name" type="ecore:EString" use="required"/>
+    <xsd:attribute ecore:name="parameter_value" name="parameter_value" type="ecore:EString" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Display">
+    <xsd:sequence>
+      <xsd:element ecore:name="screen_reader" ecore:resolveProxies="true" name="screen_reader" type="eu4all:Screen_Reader" minOccurs="0"/>
+      <xsd:element ecore:name="screen_enhancement" ecore:resolveProxies="true" name="screen_enhancement" type="eu4all:Screen_Enhancement" minOccurs="0"/>
+      <xsd:element ecore:name="text_reading_highlight" ecore:resolveProxies="true" name="text_reading_highlight" type="eu4all:Text_Reading_Highlight" minOccurs="0"/>
+      <xsd:element ecore:resolveProxies="true" name="braille" type="eu4all:Braille" minOccurs="0"/>
+      <xsd:element ecore:resolveProxies="true" name="tactile" type="eu4all:Tactile" minOccurs="0"/>
+      <xsd:element ecore:name="visual_alert" ecore:resolveProxies="true" name="visual_alert" type="eu4all:Visual_Alert" minOccurs="0"/>
+      <xsd:element ecore:name="structural_presentation" ecore:resolveProxies="true" name="structural_presentation" type="eu4all:Structural_Presentation" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Screen_Reader" name="Screen_Reader">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="link_indication"  name="link_indication" type="eu4all_0:Link_Indication_Vocabulary"/>
+    <xsd:attribute ecore:name="speech_rate"  name="speech_rate" type="ecore:EInt"/>
+    <xsd:attribute  name="pitch" type="ecore:EFloat"/>
+    <xsd:attribute  name="volume" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Screen_Enhancement" name="Screen_Enhancement">
+    <xsd:sequence>
+      <xsd:element ecore:name="font_face" ecore:resolveProxies="true" minOccurs="0" name="font_face" type="eu4all:Font_Face"/>
+      <xsd:element ecore:name="foreground_colour" ecore:resolveProxies="true" minOccurs="0" name="foreground_colour" type="eu4all:Colour"/>
+      <xsd:element ecore:name="background_colour" ecore:resolveProxies="true" minOccurs="0" name="background_colour" type="eu4all:Colour"/>
+      <xsd:element ecore:name="highlight_colour" ecore:resolveProxies="true" minOccurs="0" name="highlight_colour" type="eu4all:Colour"/>
+      <xsd:element ecore:name="link_colour" ecore:resolveProxies="true" minOccurs="0" name="link_colour" type="eu4all:Colour"/>
+      <xsd:element ecore:name="cursor_color" ecore:resolveProxies="true" minOccurs="0" name="cursor_color" type="eu4all:Colour"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="font_size"  name="font_size" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="cursor_size"  name="cursor_size" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="cursor_trails"  name="cursor_trails" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="invert_colour_choice"  name="invert_colour_choice" type="ecore:EBoolean"/>
+    <xsd:attribute ecore:name="invert_images"  name="invert_images" type="ecore:EBoolean"/>
+    <xsd:attribute ecore:name="tracking_vocabulary"  name="tracking_vocabulary" type="eu4all_0:Tracking_Vocabulary"/>
+    <xsd:attribute  name="magnification" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="personal_stylesheet" name="personal_stylesheet" type="eu4all_0:URI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Text_Reading_Highlight" name="Text_Reading_Highlight">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="speech_rate"  name="speech_rate" type="ecore:EInt"/>
+    <xsd:attribute  name="pitch" type="ecore:EFloat"/>
+    <xsd:attribute  name="volume" type="ecore:EFloat"/>
+    <xsd:attribute  name="highlight" type="eu4all_0:Reading_Unit_Vocabulary"/>
+    <xsd:attribute ecore:name="speech_component"  name="speech_component" type="eu4all_0:Speech_Component_Vocabulary"/>
+    <xsd:attribute ecore:name="reading_unit"  name="reading_unit" type="eu4all_0:Reading_Unit_Vocabulary"/>
+  </xsd:complexType>
+  <xsd:complexType name="Braille">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="braille_grade"  name="braille_grade" type="eu4all_0:Braille_Grade_Vocabulary"/>
+    <xsd:attribute ecore:name="number_of_braille_dots"  name="number_of_braille_dots" type="eu4all_0:Braille_Dot_Number_Vocabulary"/>
+    <xsd:attribute ecore:name="number_of_braille_cells"  name="number_of_braille_cells" type="ecore:EInt"/>
+    <xsd:attribute ecore:name="bralle_mark"  name="bralle_mark" type="eu4all_0:Braille_Mark_Vocabulary"/>
+    <xsd:attribute ecore:name="braille_dot_pressure"  name="braille_dot_pressure" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="braille_status_cell"  name="braille_status_cell" type="eu4all_0:Braille_Status_Cell_Vocabulary" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Tactile">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Visual_Alert" name="Visual_Alert">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="system_sounds"  name="system_sounds" type="eu4all_0:System_Sounds_Vocabulary"/>
+    <xsd:attribute ecore:name="system_sounds_caption"  name="system_sounds_caption" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Structural_Presentation" name="Structural_Presentation">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="content_density"  name="content_density" type="eu4all_0:Content_Density_Vocabulary"/>
+    <xsd:attribute ecore:name="components_shown"  name="components_shown" type="eu4all_0:Components_Shown_Vocabulary"/>
+    <xsd:attribute ecore:name="window_layout"  name="window_layout" type="eu4all_0:Window_Layout_Vocabulary"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Font_Face" name="Font_Face">
+    <xsd:sequence>
+      <xsd:element ecore:name="font_name"  maxOccurs="unbounded" minOccurs="0" name="font_name" nillable="true" type="ecore:EString"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="generic_font_face"  name="generic_font_face" type="eu4all_0:Generic_Font_Face_Vocabulary"/>
+  </xsd:complexType>
+  <xsd:complexType name="Control">
+    <xsd:sequence>
+      <xsd:element ecore:name="keyboard_enhancement" ecore:resolveProxies="true" minOccurs="0" name="keyboard_enhancement" type="eu4all:Keyboard_Enhancement"/>
+      <xsd:element ecore:name="onscreen_keyboard" ecore:resolveProxies="true" minOccurs="0" name="onscreen_keyboard" type="eu4all:Onscreen_Keyboard"/>
+      <xsd:element ecore:name="alternative_keyboard" ecore:resolveProxies="true" minOccurs="0" name="alternative_keyboard" type="eu4all:Alternative_Keyboard"/>
+      <xsd:element ecore:name="mouse_emulation" ecore:resolveProxies="true" minOccurs="0" name="mouse_emulation" type="eu4all:Mouse_Emulation"/>
+      <xsd:element ecore:name="alternative_pointing" ecore:resolveProxies="true" minOccurs="0" name="alternative_pointing" type="eu4all:Alternative_Pointing"/>
+      <xsd:element ecore:name="voice_recognition" ecore:resolveProxies="true" minOccurs="0" name="voice_recognition" type="eu4all:Voice_Recognition"/>
+      <xsd:element ecore:name="coded_input" ecore:resolveProxies="true" minOccurs="0" name="coded_input" type="eu4all:Coded_Input"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="prediction" type="eu4all:Prediction"/>
+      <xsd:element ecore:name="structural_navigation" ecore:resolveProxies="true" minOccurs="0" name="structural_navigation" type="eu4all:Structural_Navigation"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="input_requirements"  name="input_requirements" type="eu4all_0:Control_Flexibility_Vocabulary"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Keyboard_Enhancement" name="Keyboard_Enhancement">
+    <xsd:sequence>
+      <xsd:element ecore:name="sticky_keys" ecore:resolveProxies="true" minOccurs="0" name="sticky_keys" type="eu4all:Sticky_Keys"/>
+      <xsd:element ecore:name="repeat_keys" ecore:resolveProxies="true" minOccurs="0" name="repeat_keys" type="eu4all:Repeat_Keys"/>
+      <xsd:element ecore:name="slow_keys" ecore:resolveProxies="true" minOccurs="0" name="slow_keys" type="eu4all:Slow_Keys"/>
+      <xsd:element ecore:name="debounce_keys" ecore:resolveProxies="true" minOccurs="0" name="debounce_keys" type="eu4all:Debounce_Keys"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="alphanumeric_keyboard_layout"  name="alphanumeric_keyboard_layout" type="eu4all_0:Alphanumeric_Layout_Vocabulary"/>
+    <xsd:attribute ecore:name="alphanumeric_keyboard_layout_custom" name="alphanumeric_keyboard_layout_custom" type="eu4all_0:URI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Onscreen_Keyboard" name="Onscreen_Keyboard">
+    <xsd:sequence>
+      <xsd:element ecore:name="point_and_click_selection" ecore:resolveProxies="true" minOccurs="0" name="point_and_click_selection" type="eu4all:Point_and_Click_Selection"/>
+      <xsd:element ecore:name="point_and_dwell_selection" ecore:resolveProxies="true" minOccurs="0" name="point_and_dwell_selection" type="eu4all:Point_and_Dwell_Selection"/>
+      <xsd:element ecore:name="automatic_scanning" ecore:resolveProxies="true" minOccurs="0" name="automatic_scanning" type="eu4all:Automatic_Scanning"/>
+      <xsd:element ecore:name="inverse_scanning" ecore:resolveProxies="true" minOccurs="0" name="inverse_scanning" type="eu4all:Inverse_Scanning"/>
+      <xsd:element ecore:name="directed_scanning" ecore:resolveProxies="true" minOccurs="0" name="directed_scanning" type="eu4all:Directed_Scanning"/>
+      <xsd:element ecore:name="code_selection" ecore:resolveProxies="true" minOccurs="0" name="code_selection" type="eu4all:Code_Selection"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="alphanumeric_keyboard_layout"  name="alphanumeric_keyboard_layout" type="eu4all_0:Alphanumeric_Layout_Vocabulary"/>
+    <xsd:attribute ecore:name="alphanumeric_keyboard_layout_custom" name="alphanumeric_keyboard_layout_custom" type="eu4all_0:URI"/>
+    <xsd:attribute ecore:name="key_height_relative"  name="key_height_relative" type="ecore:EInt" use="required"/>
+    <xsd:attribute ecore:name="key_width_relative"  name="key_width_relative" type="ecore:EInt" use="required"/>
+    <xsd:attribute ecore:name="key_space_relative"  name="key_space_relative" type="ecore:EInt" use="required"/>
+    <xsd:attribute ecore:name="key_spacing_relative"  name="key_spacing_relative" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Alternative_Keyboard" name="Alternative_Keyboard">
+    <xsd:sequence>
+      <xsd:element ecore:name="sticky_keys" ecore:resolveProxies="true" minOccurs="0" name="sticky_keys" type="eu4all:Sticky_Keys"/>
+      <xsd:element ecore:name="repeat_keys" ecore:resolveProxies="true" minOccurs="0" name="repeat_keys" type="eu4all:Repeat_Keys"/>
+      <xsd:element ecore:name="slow_keys" ecore:resolveProxies="true" minOccurs="0" name="slow_keys" type="eu4all:Slow_Keys"/>
+      <xsd:element ecore:name="debounce_keys" ecore:resolveProxies="true" minOccurs="0" name="debounce_keys" type="eu4all:Debounce_Keys"/>
+      <xsd:element ecore:name="resizable_keys" ecore:resolveProxies="true" minOccurs="0" name="resizable_keys" type="eu4all:Resizable_Keys"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="alphanumeric_keyboard_layout"  name="alphanumeric_keyboard_layout" type="eu4all_0:Alphanumeric_Layout_Vocabulary"/>
+    <xsd:attribute ecore:name="alphanumeric_keyboard_layout_custom" name="alphanumeric_keyboard_layout_custom" type="eu4all_0:URI"/>
+    <xsd:attribute ecore:name="key_selection_sound_feedback"  name="key_selection_sound_feedback" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Mouse_Emulation" name="Mouse_Emulation">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="cursor_speed"  name="cursor_speed" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="cursor_acceleration"  name="cursor_acceleration" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="mouse_emulation_device"  name="mouse_emulation_device" type="eu4all_0:Mouse_Emulation_Device_Vocabulary"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Alternative_Pointing" name="Alternative_Pointing">
+    <xsd:sequence>
+      <xsd:element ecore:name="relative_pointing" ecore:resolveProxies="true" minOccurs="0" name="relative_pointing" type="eu4all:Relative_Pointing"/>
+      <xsd:element ecore:name="dwell_select" ecore:resolveProxies="true" minOccurs="0" name="dwell_select" type="eu4all:Dwell_Select"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="double_click_speed"  name="double_click_speed" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="absolute_pointing"  name="absolute_pointing" type="ecore:EBoolean"/>
+    <xsd:attribute ecore:name="device_handedness"  name="device_handedness" type="eu4all_0:Handedness_Vocabulary"/>
+    <xsd:attribute ecore:name="switch_select"  name="switch_select" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Voice_Recognition" name="Voice_Recognition">
+    <xsd:sequence>
+      <xsd:element ecore:name="command_and_control" ecore:resolveProxies="true" minOccurs="0" name="command_and_control" type="eu4all:Command_and_Control"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="voice_profile_identity" name="voice_profile_identity" type="eu4all_0:URI"/>
+    <xsd:attribute ecore:name="microphone_gain"  name="microphone_gain" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="controller_window"  name="controller_window" type="eu4all_0:Controller_Window_Vocabulary"/>
+    <xsd:attribute  name="dictation" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Coded_Input" name="Coded_Input">
+    <xsd:sequence>
+      <xsd:element ecore:name="code_termination" ecore:resolveProxies="true" minOccurs="0" name="code_termination" type="eu4all:Code_Termination"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute  name="code" type="eu4all_0:Code_Vocabulary" use="required"/>
+    <xsd:attribute ecore:name="number_of_inputs"  name="number_of_inputs" type="ecore:EInt" use="required"/>
+    <xsd:attribute ecore:name="custom_code" name="custom_code" type="eu4all_0:URI"/>
+    <xsd:attribute ecore:name="switch_port"  name="switch_port" use="required" type="eu4all_0:Switch_Port_Vocabulary"/>
+  </xsd:complexType>
+  <xsd:complexType name="Prediction">
+    <xsd:sequence>
+      <xsd:element ecore:name="prediction_type"  maxOccurs="unbounded" name="prediction_type" type="eu4all_0:Prediction_Type_Vocabulary"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="number_of_prediction"  name="number_of_prediction" type="ecore:EInt"/>
+    <xsd:attribute name="lexicon" type="eu4all_0:URI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Structural_Navigation" name="Structural_Navigation">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="application" type="eu4all:Application"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="navigation_strategy"  name="navigation_strategy" type="eu4all_0:Navigation_Strategy_Vocabulary"/>
+    <xsd:attribute ecore:name="table_of_contents"  name="table_of_contents" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Sticky_Keys" name="Sticky_Keys">
+    <xsd:attribute ecore:name="modifier_indication"  name="modifier_indication" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Repeat_Keys" name="Repeat_Keys">
+    <xsd:attribute ecore:name="automatic_delay"  name="automatic_delay" type="ecore:EBoolean"/>
+    <xsd:attribute ecore:name="automatic_repeat_rate"  name="automatic_repeat_rate" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Slow_Keys" name="Slow_Keys">
+    <xsd:attribute ecore:name="slow_keys_interval"  name="slow_keys_interval" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Debounce_Keys" name="Debounce_Keys">
+    <xsd:attribute ecore:name="debounce_interval"  name="debounce_interval" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Point_and_Click_Selection" name="Point_and_Click_Selection">
+    <xsd:attribute ecore:name="switch_delay"  name="switch_delay" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Point_and_Dwell_Selection" name="Point_and_Dwell_Selection">
+    <xsd:attribute ecore:name="dwell_time"  name="dwell_time" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Automatic_Scanning" name="Automatic_Scanning">
+    <xsd:sequence>
+      <xsd:element ecore:name="scan_switch_delay"  minOccurs="0" maxOccurs="unbounded" name="scan_switch_delay" type="ecore:EFloat"/>
+      <xsd:element ecore:name="switch_assignment" ecore:resolveProxies="true" maxOccurs="unbounded" name="switch_assignment" type="eu4all:Switch_Assignment"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="scan_speed"  name="scan_speed" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="switch_port"  name="switch_port" type="eu4all_0:Switch_Port_Vocabulary"/>
+    <xsd:attribute ecore:name="automatic_scan_initial_delay"  name="automatic_scan_initial_delay" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="automatic_scan_repeat"  name="automatic_scan_repeat" type="eu4all_0:Automatic_Scan_Repeat_Vocabulary"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Inverse_Scanning" name="Inverse_Scanning">
+    <xsd:sequence>
+      <xsd:element ecore:name="switch_assignment" ecore:resolveProxies="true" maxOccurs="unbounded" name="switch_assignment" type="eu4all:Switch_Assignment"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="scan_speed"  name="scan_speed" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="scan_switch_delay"  name="scan_switch_delay" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="switch_port"  name="switch_port" type="eu4all_0:Switch_Port_Vocabulary"/>
+    <xsd:attribute ecore:name="dwell_time"  name="dwell_time" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Directed_Scanning" name="Directed_Scanning">
+    <xsd:sequence>
+      <xsd:element ecore:name="switch_assignment" ecore:resolveProxies="true" maxOccurs="unbounded" name="switch_assignment" type="eu4all:Switch_Assignment"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="scan_speed"  name="scan_speed" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="switch_port"  name="switch_port" type="eu4all_0:Switch_Port_Vocabulary"/>
+    <xsd:attribute ecore:name="scan_switch_delay"  name="scan_switch_delay" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="dwell_time"  name="dwell_time" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Code_Selection" name="Code_Selection">
+    <xsd:sequence>
+      <xsd:element ecore:name="code_termination" ecore:resolveProxies="true" minOccurs="0" name="code_termination" type="eu4all:Code_Termination"/>
+    </xsd:sequence>
+    <xsd:attribute  name="code" type="eu4all_0:Code_Vocabulary"/>
+    <xsd:attribute ecore:name="number_of_inputs"  name="number_of_inputs" type="ecore:EInt"/>
+    <xsd:attribute ecore:name="selection_method"  name="selection_method" type="eu4all_0:Selection_Method_Vocabulary"/>
+    <xsd:attribute ecore:name="switch_port"  name="switch_port" type="eu4all_0:Switch_Port_Vocabulary"/>
+    <xsd:attribute ecore:name="custom_code" name="custom_code" type="eu4all_0:URI"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Resizable_Keys" name="Resizable_Keys">
+    <xsd:attribute ecore:name="key_height_absolute"  name="key_height_absolute" type="ecore:EInt"/>
+    <xsd:attribute ecore:name="key_width_aboslute"  name="key_width_aboslute" type="ecore:EInt"/>
+    <xsd:attribute ecore:name="key_spacing_absolute"  name="key_spacing_absolute" type="ecore:EInt"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Relative_Pointing" name="Relative_Pointing">
+    <xsd:attribute ecore:name="cursor_speed"  name="cursor_speed" type="ecore:EFloat"/>
+    <xsd:attribute ecore:name="cursor_acceleration"  name="cursor_acceleration" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Dwell_Select" name="Dwell_Select">
+    <xsd:attribute ecore:name="use_dwell_select"  name="use_dwell_select" type="ecore:EBoolean"/>
+    <xsd:attribute ecore:name="dwell_time"  name="dwell_time" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Command_and_Control" name="Command_and_Control">
+    <xsd:attribute  name="vocabulary" type="eu4all_0:Vocabulary_Vocabulary"/>
+    <xsd:attribute ecore:name="confirmation_feedback"  name="confirmation_feedback" type="ecore:EBoolean"/>
+    <xsd:attribute ecore:name="mouse_control"  name="mouse_control" type="ecore:EBoolean"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Code_Termination" name="Code_Termination">
+    <xsd:sequence>
+      <xsd:element ecore:name="code_termination_signal"  name="code_termination_signal" type="eu4all_0:Code_Termination_Signal_Vocabulary"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="code_rate"  name="code_rate" type="ecore:EFloat"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Switch_Assignment" name="Switch_Assignment">
+    <xsd:attribute ecore:name="switch_function"  name="switch_function" type="eu4all_0:Switch_Function_Vocabulary" use="required"/>
+    <xsd:attribute ecore:name="switch_number"  name="switch_number" type="ecore:EInt" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="Content">
+    <xsd:sequence>
+      <xsd:element ecore:name="alternative" ecore:resolveProxies="true" name="alternative" type="eu4all:Adaptation_Preference_Abstract" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ecore:name="enhancement" ecore:resolveProxies="true" name="enhancement" type="eu4all:Adaptation_Preference_Abstract" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:name="colour_coding_avoidance"  name="colour_coding_avoidance" type="ecore:EBoolean"/>
+    <xsd:attribute  name="hazard" type="eu4all_0:Hazard_Vocabulary"/>
+    <xsd:attribute ecore:name="support_tool"  name="support_tool" type="eu4all_0:Support_Tool_Vocabulary"/>
+    <xsd:attribute ecore:name="Original_Content_Type" name="eu4all_original_content_type" type="eu4all_0:Original_Content_Type" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType ecore:name="Adaptation_Preference_Abstract" name="Adaptation_Preference_Abstract" abstract="false">
+    <xsd:sequence>
+      <xsd:element ecore:name="eu4all_adaptation_preference_ranking"  maxOccurs="1" minOccurs="0" name="eu4all_adaptation_preference_ranking" type="ecore:EInt"/>
+    </xsd:sequence>
+    <xsd:attribute  name="usage" type="eu4all_0:Usage_Vocabulary"/>
+    <xsd:attribute ecore:name="adaptation_type"  name="adaptation_type" type="eu4all_0:Adaptation_Type_Vocabulary"/>
+    <xsd:attribute ecore:name="original_access_mode"  name="original_access_mode" type="eu4all_0:Access_Mode_Vocabulary" use="required"/>
+    <xsd:attribute ecore:name="representation_form"  name="representation_form" type="eu4all_0:Representation_Form_Vocabulary"/>
+    <xsd:attribute  name="language" type="eu4all_0:ISO_Standard_6392T"/>
+    <xsd:attribute ecore:name="reading_rate"  name="reading_rate" type="ecore:EInt"/>
+    <xsd:attribute ecore:name="education_level" name="education_level" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="Colour">
+    <xsd:attribute  name="red" type="ecore:EInt"/>
+    <xsd:attribute  name="green" type="ecore:EInt"/>
+    <xsd:attribute  name="blue" type="ecore:EInt"/>
+  </xsd:complexType>
+</xsd:schema>

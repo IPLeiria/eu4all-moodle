@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2008 EU4ALL (University of York) -->
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" 
+  xmlns:eu4all="isoafa_vocab" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  ecore:nsPrefix="eu4all" 
+  ecore:package="eu4all_isoafa_vocab" 
+  targetNamespace="isoafa_vocab"
+  elementFormDefault="qualified">
+  <xsd:simpleType ecore:instanceClass="String" name="URI">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Access_Mode_Vocabulary" name="Access_Mode_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="V"/>
+      <xsd:enumeration ecore:value="2" value="X"/>
+      <xsd:enumeration ecore:value="3" value="A"/>
+      <xsd:enumeration ecore:value="4" value="T"/>
+      <xsd:enumeration ecore:value="5" value="O"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Adaptation_Type_Vocabulary" name="Adaptation_Type_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="AU"/>
+      <xsd:enumeration ecore:value="2" value="VI"/>
+      <xsd:enumeration ecore:value="3" value="TE"/>
+      <xsd:enumeration ecore:value="4" value="TA"/>
+      <xsd:enumeration ecore:value="5" value="CA"/>
+      <xsd:enumeration ecore:value="6" value="AD"/>
+      <xsd:enumeration ecore:value="7" value="BR"/>
+      <xsd:enumeration ecore:value="8" value="DI"/>
+      <xsd:enumeration ecore:value="9" value="EL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Alphanumeric_Layout_Vocabulary" name="Alphanumeric_Layout_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="ST"/>
+      <xsd:enumeration ecore:value="2" value="SE"/>
+      <xsd:enumeration ecore:value="3" value="FR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Automatic_Scan_Repeat_Vocabulary" name="Automatic_Scan_Repeat_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="ASR1"/>
+      <xsd:enumeration ecore:value="2" value="ASR2"/>
+      <xsd:enumeration ecore:value="3" value="ASR3"/>
+      <xsd:enumeration ecore:value="4" value="ASR4"/>
+      <xsd:enumeration ecore:value="5" value="ASR5"/>
+      <xsd:enumeration ecore:value="9" value="I"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Braille_Dot_Number_Vocabulary" name="Braille_Dot_Number_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="BDN6"/>
+      <xsd:enumeration ecore:value="2" value="BDN8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Braille_Grade_Vocabulary" name="Braille_Grade_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="U"/>
+      <xsd:enumeration ecore:value="2" value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Braille_Mark_Vocabulary" name="Braille_Mark_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="H"/>
+      <xsd:enumeration ecore:value="2" value="B"/>
+      <xsd:enumeration ecore:value="3" value="U"/>
+      <xsd:enumeration ecore:value="4" value="I"/>
+      <xsd:enumeration ecore:value="5" value="S"/>
+      <xsd:enumeration ecore:value="6" value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Braille_Status_Cell_Vocabulary" name="Braille_Status_Cell_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="O"/>
+      <xsd:enumeration ecore:value="2" value="L"/>
+      <xsd:enumeration ecore:value="3" value="R"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Code_Termination_Signal_Vocabulary" name="Code_Termination_Signal_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="S"/>
+      <xsd:enumeration ecore:value="2" value="T"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Code_Vocabulary" name="Code_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="M"/>
+      <xsd:enumeration ecore:value="2" value="Q"/>
+      <xsd:enumeration ecore:value="3" value="E"/>
+      <xsd:enumeration ecore:value="4" value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Components_Shown_Vocabulary" name="Components_Shown_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="L"/>
+      <xsd:enumeration ecore:value="2" value="A"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Content_Density_Vocabulary" name="Content_Density_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="O"/>
+      <xsd:enumeration ecore:value="2" value="D"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Control_Flexibility_Vocabulary" name="Control_Flexibility_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="K"/>
+      <xsd:enumeration ecore:value="2" value="M"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Controller_Window_Vocabulary" name="Controller_Window_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="H"/>
+      <xsd:enumeration ecore:value="2" value="S"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Generic_Font_Face_Vocabulary" name="Generic_Font_Face_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="SE"/>
+      <xsd:enumeration ecore:value="2" value="SA"/>
+      <xsd:enumeration ecore:value="3" value="MO"/>
+      <xsd:enumeration ecore:value="4" value="CU"/>
+      <xsd:enumeration ecore:value="5" value="FA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Handedness_Vocabulary" name="Handedness_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="L"/>
+      <xsd:enumeration ecore:value="2" value="R"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Hazard_Vocabulary" name="Hazard_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="F"/>
+      <xsd:enumeration ecore:value="2" value="S"/>
+      <xsd:enumeration ecore:value="3" value="O"/>
+      <xsd:enumeration ecore:value="4" value="M"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Link_Indication_Vocabulary" name="Link_Indication_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="S"/>
+      <xsd:enumeration ecore:value="2" value="D"/>
+      <xsd:enumeration ecore:value="3" value="E"/>
+      <xsd:enumeration ecore:value="4" value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Mouse_Emulation_Device_Vocabulary" name="Mouse_Emulation_Device_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="P"/>
+      <xsd:enumeration ecore:value="2" value="K"/>
+      <xsd:enumeration ecore:value="3" value="S"/>
+      <xsd:enumeration ecore:value="4" value="V"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Navigation_Strategy_Vocabulary" name="Navigation_Strategy_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="B"/>
+      <xsd:enumeration ecore:value="2" value="D"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Prediction_Type_Vocabulary" name="Prediction_Type_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="L"/>
+      <xsd:enumeration ecore:value="2" value="W"/>
+      <xsd:enumeration ecore:value="3" value="C"/>
+      <xsd:enumeration ecore:value="4" value="M"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Reading_Unit_Vocabulary" name="Reading_Unit_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="W"/>
+      <xsd:enumeration ecore:value="2" value="L"/>
+      <xsd:enumeration ecore:value="3" value="S"/>
+      <xsd:enumeration ecore:value="4" value="P"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Representation_Form_Vocabulary" name="Representation_Form_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="EN"/>
+      <xsd:enumeration ecore:value="2" value="VE"/>
+      <xsd:enumeration ecore:value="3" value="RD"/>
+      <xsd:enumeration ecore:value="4" value="RT"/>
+      <xsd:enumeration ecore:value="5" value="TR"/>
+      <xsd:enumeration ecore:value="6" value="AL"/>
+      <xsd:enumeration ecore:value="7" value="LO"/>
+      <xsd:enumeration ecore:value="8" value="SI"/>
+      <xsd:enumeration ecore:value="9" value="IM"/>
+      <xsd:enumeration ecore:value="10" value="SY"/>
+      <xsd:enumeration ecore:value="11" value="RE"/>
+      <xsd:enumeration ecore:value="12" value="SZ"/>
+      <xsd:enumeration ecore:value="13" value="HA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Selection_Method_Vocabulary" name="Selection_Method_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="D"/>
+      <xsd:enumeration ecore:value="2" value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Speech_Component_Vocabulary" name="Speech_Component_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="A"/>
+      <xsd:enumeration ecore:value="2" value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Support_Tool_Vocabulary" name="Support_Tool_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="D"/>
+      <xsd:enumeration ecore:value="2" value="C"/>
+      <xsd:enumeration ecore:value="3" value="N"/>
+      <xsd:enumeration ecore:value="4" value="P"/>
+      <xsd:enumeration ecore:value="5" value="A"/>
+      <xsd:enumeration ecore:value="6" value="T"/>
+      <xsd:enumeration ecore:value="7" value="S"/>
+      <xsd:enumeration ecore:value="8" value="H"/>
+      <xsd:enumeration ecore:value="9" value="M"/>
+      <xsd:enumeration ecore:value="10" value="O"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Switch_Function_Vocabulary" name="Switch_Function_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="SE"/>
+      <xsd:enumeration ecore:value="2" value="CA"/>
+      <xsd:enumeration ecore:value="3" value="SC"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Switch_Port_Vocabulary" name="Switch_Port_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="P"/>
+      <xsd:enumeration ecore:value="2" value="G"/>
+      <xsd:enumeration ecore:value="3" value="S"/>
+      <xsd:enumeration ecore:value="4" value="U"/>
+      <xsd:enumeration ecore:value="5" value="F"/>
+      <xsd:enumeration ecore:value="6" value="I"/>
+      <xsd:enumeration ecore:value="7" value="B"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="System_Sounds_Vocabulary" name="System_Sounds_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="D"/>
+      <xsd:enumeration ecore:value="2" value="W"/>
+      <xsd:enumeration ecore:value="3" value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Tracking_Vocabulary" name="Tracking_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="M"/>
+      <xsd:enumeration ecore:value="2" value="C"/>
+      <xsd:enumeration ecore:value="3" value="F"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Usage_Vocabulary" name="Usage_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="REQ"/>
+      <xsd:enumeration ecore:value="2" value="PRE"/>
+      <xsd:enumeration ecore:value="3" value="OPT"/>
+      <xsd:enumeration ecore:value="4" value="PRO"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Vocabulary_Vocabulary" name="Vocabulary_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="C"/>
+      <xsd:enumeration ecore:value="2" value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Window_Layout_Vocabulary" name="Window_Layout_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="T"/>
+      <xsd:enumeration ecore:value="2" value="O"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Access_Mode_Usage_Vocabulary" name="Access_Mode_Usage_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="I"/>
+      <xsd:enumeration ecore:value="2" value="O"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Display_Transformability_Vocabulary" name="Display_Transformability_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="Z"/>
+      <xsd:enumeration ecore:value="2" value="A"/>
+      <xsd:enumeration ecore:value="3" value="F"/>
+      <xsd:enumeration ecore:value="4" value="B"/>
+      <xsd:enumeration ecore:value="5" value="C"/>
+      <xsd:enumeration ecore:value="6" value="H"/>
+      <xsd:enumeration ecore:value="7" value="L"/>
+      <xsd:enumeration ecore:value="8" value="S"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Extent_Vocabulary" name="Extent_Vocabulary">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration ecore:value="1" value="P"/>
+      <xsd:enumeration ecore:value="2" value="A"/>
+      <xsd:enumeration ecore:value="3" value="EU4ALL_M"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="ISO_Standard_6392T" name="ISO_Standard_6392T">
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration ecore:value="1" value="aar"/>
+    <xsd:enumeration ecore:value="2" value="abk"/>
+    <xsd:enumeration ecore:value="3" value="ace"/>
+    <xsd:enumeration ecore:value="4" value="ach"/>
+    <xsd:enumeration ecore:value="5" value="ada"/>
+    <xsd:enumeration ecore:value="6" value="ady"/>
+    <xsd:enumeration ecore:value="7" value="afa"/>
+    <xsd:enumeration ecore:value="8" value="afh"/>
+    <xsd:enumeration ecore:value="9" value="afr"/>
+    <xsd:enumeration ecore:value="10" value="ain"/>
+    <xsd:enumeration ecore:value="11" value="aka"/>
+    <xsd:enumeration ecore:value="12" value="akk"/>
+    <xsd:enumeration ecore:value="13" value="sqi"/>
+    <xsd:enumeration ecore:value="14" value="ale"/>
+    <xsd:enumeration ecore:value="15" value="alg"/>
+    <xsd:enumeration ecore:value="16" value="alt"/>
+    <xsd:enumeration ecore:value="17" value="amh"/>
+    <xsd:enumeration ecore:value="18" value="ang"/>
+    <xsd:enumeration ecore:value="19" value="anp"/>
+    <xsd:enumeration ecore:value="20" value="apa"/>
+    <xsd:enumeration ecore:value="21" value="ara"/>
+    <xsd:enumeration ecore:value="22" value="arc"/>
+    <xsd:enumeration ecore:value="23" value="arg"/>
+    <xsd:enumeration ecore:value="24" value="hye"/>
+    <xsd:enumeration ecore:value="25" value="arn"/>
+    <xsd:enumeration ecore:value="26" value="arp"/>
+    <xsd:enumeration ecore:value="27" value="art"/>
+    <xsd:enumeration ecore:value="28" value="arw"/>
+    <xsd:enumeration ecore:value="29" value="asm"/>
+    <xsd:enumeration ecore:value="30" value="ast"/>
+    <xsd:enumeration ecore:value="31" value="ath"/>
+    <xsd:enumeration ecore:value="32" value="aus"/>
+    <xsd:enumeration ecore:value="33" value="ava"/>
+    <xsd:enumeration ecore:value="34" value="ave"/>
+    <xsd:enumeration ecore:value="35" value="awa"/>
+    <xsd:enumeration ecore:value="36" value="aym"/>
+    <xsd:enumeration ecore:value="37" value="aze"/>
+    <xsd:enumeration ecore:value="38" value="bad"/>
+    <xsd:enumeration ecore:value="39" value="bai"/>
+    <xsd:enumeration ecore:value="40" value="bak"/>
+    <xsd:enumeration ecore:value="41" value="bal"/>
+    <xsd:enumeration ecore:value="42" value="bam"/>
+    <xsd:enumeration ecore:value="43" value="ban"/>
+    <xsd:enumeration ecore:value="44" value="eus"/>
+    <xsd:enumeration ecore:value="45" value="bas"/>
+    <xsd:enumeration ecore:value="46" value="bat"/>
+    <xsd:enumeration ecore:value="47" value="bej"/>
+    <xsd:enumeration ecore:value="48" value="bel"/>
+    <xsd:enumeration ecore:value="49" value="bem"/>
+    <xsd:enumeration ecore:value="50" value="ben"/>
+    <xsd:enumeration ecore:value="51" value="ber"/>
+    <xsd:enumeration ecore:value="52" value="bho"/>
+    <xsd:enumeration ecore:value="53" value="bih"/>
+    <xsd:enumeration ecore:value="54" value="bik"/>
+    <xsd:enumeration ecore:value="55" value="bin"/>
+    <xsd:enumeration ecore:value="56" value="bis"/>
+    <xsd:enumeration ecore:value="57" value="bla"/>
+    <xsd:enumeration ecore:value="58" value="bnt"/>
+    <xsd:enumeration ecore:value="59" value="bos"/>
+    <xsd:enumeration ecore:value="60" value="bra"/>
+    <xsd:enumeration ecore:value="61" value="bre"/>
+    <xsd:enumeration ecore:value="62" value="btk"/>
+    <xsd:enumeration ecore:value="63" value="bua"/>
+    <xsd:enumeration ecore:value="64" value="bug"/>
+    <xsd:enumeration ecore:value="65" value="bul"/>
+    <xsd:enumeration ecore:value="66" value="mya"/>
+    <xsd:enumeration ecore:value="67" value="byn"/>
+    <xsd:enumeration ecore:value="68" value="cad"/>
+    <xsd:enumeration ecore:value="69" value="cai"/>
+    <xsd:enumeration ecore:value="70" value="car"/>
+    <xsd:enumeration ecore:value="71" value="cat"/>
+    <xsd:enumeration ecore:value="72" value="cau"/>
+    <xsd:enumeration ecore:value="73" value="ceb"/>
+    <xsd:enumeration ecore:value="74" value="cel"/>
+    <xsd:enumeration ecore:value="75" value="cha"/>
+    <xsd:enumeration ecore:value="76" value="chb"/>
+    <xsd:enumeration ecore:value="77" value="che"/>
+    <xsd:enumeration ecore:value="78" value="chg"/>
+    <xsd:enumeration ecore:value="79" value="zho"/>
+    <xsd:enumeration ecore:value="80" value="chk"/>
+    <xsd:enumeration ecore:value="81" value="chm"/>
+    <xsd:enumeration ecore:value="82" value="chn"/>
+    <xsd:enumeration ecore:value="83" value="cho"/>
+    <xsd:enumeration ecore:value="84" value="chp"/>
+    <xsd:enumeration ecore:value="85" value="chr"/>
+    <xsd:enumeration ecore:value="86" value="chu"/>
+    <xsd:enumeration ecore:value="87" value="chv"/>
+    <xsd:enumeration ecore:value="88" value="chy"/>
+    <xsd:enumeration ecore:value="89" value="cmc"/>
+    <xsd:enumeration ecore:value="90" value="cop"/>
+    <xsd:enumeration ecore:value="91" value="cor"/>
+    <xsd:enumeration ecore:value="92" value="cos"/>
+    <xsd:enumeration ecore:value="93" value="cpe"/>
+    <xsd:enumeration ecore:value="94" value="cpf"/>
+    <xsd:enumeration ecore:value="95" value="cpp"/>
+    <xsd:enumeration ecore:value="96" value="cre"/>
+    <xsd:enumeration ecore:value="97" value="crh"/>
+    <xsd:enumeration ecore:value="98" value="crp"/>
+    <xsd:enumeration ecore:value="99" value="csb"/>
+    <xsd:enumeration ecore:value="100" value="cus"/>
+    <xsd:enumeration ecore:value="101" value="ces"/>
+    <xsd:enumeration ecore:value="102" value="dak"/>
+    <xsd:enumeration ecore:value="103" value="dan"/>
+    <xsd:enumeration ecore:value="104" value="dar"/>
+    <xsd:enumeration ecore:value="105" value="day"/>
+    <xsd:enumeration ecore:value="106" value="del"/>
+    <xsd:enumeration ecore:value="107" value="den"/>
+    <xsd:enumeration ecore:value="108" value="dgr"/>
+    <xsd:enumeration ecore:value="109" value="din"/>
+    <xsd:enumeration ecore:value="110" value="div"/>
+    <xsd:enumeration ecore:value="111" value="doi"/>
+    <xsd:enumeration ecore:value="112" value="dra"/>
+    <xsd:enumeration ecore:value="113" value="dsb"/>
+    <xsd:enumeration ecore:value="114" value="dua"/>
+    <xsd:enumeration ecore:value="115" value="dum"/>
+    <xsd:enumeration ecore:value="116" value="nld"/>
+    <xsd:enumeration ecore:value="117" value="dyu"/>
+    <xsd:enumeration ecore:value="118" value="dzo"/>
+    <xsd:enumeration ecore:value="119" value="efi"/>
+    <xsd:enumeration ecore:value="120" value="egy"/>
+    <xsd:enumeration ecore:value="121" value="eka"/>
+    <xsd:enumeration ecore:value="122" value="elx"/>
+    <xsd:enumeration ecore:value="123" value="eng"/>
+    <xsd:enumeration ecore:value="124" value="enm"/>
+    <xsd:enumeration ecore:value="125" value="epo"/>
+    <xsd:enumeration ecore:value="126" value="est"/>
+    <xsd:enumeration ecore:value="127" value="ewe"/>
+    <xsd:enumeration ecore:value="128" value="ewo"/>
+    <xsd:enumeration ecore:value="129" value="fan"/>
+    <xsd:enumeration ecore:value="130" value="fao"/>
+    <xsd:enumeration ecore:value="131" value="fat"/>
+    <xsd:enumeration ecore:value="132" value="fij"/>
+    <xsd:enumeration ecore:value="133" value="fil"/>
+    <xsd:enumeration ecore:value="134" value="fin"/>
+    <xsd:enumeration ecore:value="135" value="fiu"/>
+    <xsd:enumeration ecore:value="136" value="fon"/>
+    <xsd:enumeration ecore:value="137" value="fra"/>
+    <xsd:enumeration ecore:value="138" value="frm"/>
+    <xsd:enumeration ecore:value="139" value="fro"/>
+    <xsd:enumeration ecore:value="140" value="frr"/>
+    <xsd:enumeration ecore:value="141" value="frs"/>
+    <xsd:enumeration ecore:value="142" value="fry"/>
+    <xsd:enumeration ecore:value="143" value="ful"/>
+    <xsd:enumeration ecore:value="144" value="fur"/>
+    <xsd:enumeration ecore:value="145" value="gaa"/>
+    <xsd:enumeration ecore:value="146" value="gay"/>
+    <xsd:enumeration ecore:value="147" value="gba"/>
+    <xsd:enumeration ecore:value="148" value="gem"/>
+    <xsd:enumeration ecore:value="149" value="kat"/>
+    <xsd:enumeration ecore:value="150" value="deu"/>
+    <xsd:enumeration ecore:value="151" value="gez"/>
+    <xsd:enumeration ecore:value="152" value="gil"/>
+    <xsd:enumeration ecore:value="153" value="gla"/>
+    <xsd:enumeration ecore:value="154" value="gle"/>
+    <xsd:enumeration ecore:value="155" value="glg"/>
+    <xsd:enumeration ecore:value="156" value="glv"/>
+    <xsd:enumeration ecore:value="157" value="gmh"/>
+    <xsd:enumeration ecore:value="158" value="goh"/>
+    <xsd:enumeration ecore:value="159" value="gon"/>
+    <xsd:enumeration ecore:value="160" value="gor"/>
+    <xsd:enumeration ecore:value="161" value="got"/>
+    <xsd:enumeration ecore:value="162" value="grb"/>
+    <xsd:enumeration ecore:value="163" value="grc"/>
+    <xsd:enumeration ecore:value="164" value="ell"/>
+    <xsd:enumeration ecore:value="165" value="grn"/>
+    <xsd:enumeration ecore:value="166" value="gsw"/>
+    <xsd:enumeration ecore:value="167" value="guj"/>
+    <xsd:enumeration ecore:value="168" value="gwi"/>
+    <xsd:enumeration ecore:value="169" value="hai"/>
+    <xsd:enumeration ecore:value="170" value="hat"/>
+    <xsd:enumeration ecore:value="171" value="hau"/>
+    <xsd:enumeration ecore:value="172" value="haw"/>
+    <xsd:enumeration ecore:value="173" value="heb"/>
+    <xsd:enumeration ecore:value="174" value="her"/>
+    <xsd:enumeration ecore:value="175" value="hil"/>
+    <xsd:enumeration ecore:value="176" value="him"/>
+    <xsd:enumeration ecore:value="177" value="hin"/>
+    <xsd:enumeration ecore:value="178" value="hit"/>
+    <xsd:enumeration ecore:value="179" value="hmn"/>
+    <xsd:enumeration ecore:value="180" value="hmo"/>
+    <xsd:enumeration ecore:value="181" value="hrv"/>
+    <xsd:enumeration ecore:value="182" value="hsb"/>
+    <xsd:enumeration ecore:value="183" value="hun"/>
+    <xsd:enumeration ecore:value="184" value="hup"/>
+    <xsd:enumeration ecore:value="185" value="iba"/>
+    <xsd:enumeration ecore:value="186" value="ibo"/>
+    <xsd:enumeration ecore:value="187" value="isl"/>
+    <xsd:enumeration ecore:value="188" value="ido"/>
+    <xsd:enumeration ecore:value="189" value="iii"/>
+    <xsd:enumeration ecore:value="190" value="ijo"/>
+    <xsd:enumeration ecore:value="191" value="iku"/>
+    <xsd:enumeration ecore:value="192" value="ile"/>
+    <xsd:enumeration ecore:value="193" value="ilo"/>
+    <xsd:enumeration ecore:value="194" value="ina"/>
+    <xsd:enumeration ecore:value="195" value="inc"/>
+    <xsd:enumeration ecore:value="196" value="ind"/>
+    <xsd:enumeration ecore:value="197" value="ine"/>
+    <xsd:enumeration ecore:value="198" value="inh"/>
+    <xsd:enumeration ecore:value="199" value="ipk"/>
+    <xsd:enumeration ecore:value="200" value="ira"/>
+    <xsd:enumeration ecore:value="201" value="iro"/>
+    <xsd:enumeration ecore:value="202" value="ita"/>
+    <xsd:enumeration ecore:value="203" value="jav"/>
+    <xsd:enumeration ecore:value="204" value="jbo"/>
+    <xsd:enumeration ecore:value="205" value="jpn"/>
+    <xsd:enumeration ecore:value="206" value="jpr"/>
+    <xsd:enumeration ecore:value="207" value="jrb"/>
+    <xsd:enumeration ecore:value="208" value="kaa"/>
+    <xsd:enumeration ecore:value="209" value="kab"/>
+    <xsd:enumeration ecore:value="210" value="kac"/>
+    <xsd:enumeration ecore:value="211" value="kal"/>
+    <xsd:enumeration ecore:value="212" value="kam"/>
+    <xsd:enumeration ecore:value="213" value="kan"/>
+    <xsd:enumeration ecore:value="214" value="kar"/>
+    <xsd:enumeration ecore:value="215" value="kas"/>
+    <xsd:enumeration ecore:value="216" value="kau"/>
+    <xsd:enumeration ecore:value="217" value="kaw"/>
+    <xsd:enumeration ecore:value="218" value="kaz"/>
+    <xsd:enumeration ecore:value="219" value="kbd"/>
+    <xsd:enumeration ecore:value="220" value="kha"/>
+    <xsd:enumeration ecore:value="221" value="khi"/>
+    <xsd:enumeration ecore:value="222" value="khm"/>
+    <xsd:enumeration ecore:value="223" value="kho"/>
+    <xsd:enumeration ecore:value="224" value="kik"/>
+    <xsd:enumeration ecore:value="225" value="kin"/>
+    <xsd:enumeration ecore:value="226" value="kir"/>
+    <xsd:enumeration ecore:value="227" value="kmb"/>
+    <xsd:enumeration ecore:value="228" value="kok"/>
+    <xsd:enumeration ecore:value="229" value="kom"/>
+    <xsd:enumeration ecore:value="230" value="kon"/>
+    <xsd:enumeration ecore:value="231" value="kor"/>
+    <xsd:enumeration ecore:value="232" value="kos"/>
+    <xsd:enumeration ecore:value="233" value="kpe"/>
+    <xsd:enumeration ecore:value="234" value="krc"/>
+    <xsd:enumeration ecore:value="235" value="krl"/>
+    <xsd:enumeration ecore:value="236" value="kro"/>
+    <xsd:enumeration ecore:value="237" value="kru"/>
+    <xsd:enumeration ecore:value="238" value="kua"/>
+    <xsd:enumeration ecore:value="239" value="kum"/>
+    <xsd:enumeration ecore:value="240" value="kur"/>
+    <xsd:enumeration ecore:value="241" value="kut"/>
+    <xsd:enumeration ecore:value="242" value="lad"/>
+    <xsd:enumeration ecore:value="243" value="lah"/>
+    <xsd:enumeration ecore:value="244" value="lam"/>
+    <xsd:enumeration ecore:value="245" value="lao"/>
+    <xsd:enumeration ecore:value="246" value="lat"/>
+    <xsd:enumeration ecore:value="247" value="lav"/>
+    <xsd:enumeration ecore:value="248" value="lez"/>
+    <xsd:enumeration ecore:value="249" value="lim"/>
+    <xsd:enumeration ecore:value="250" value="lin"/>
+    <xsd:enumeration ecore:value="251" value="lit"/>
+    <xsd:enumeration ecore:value="252" value="lol"/>
+    <xsd:enumeration ecore:value="253" value="loz"/>
+    <xsd:enumeration ecore:value="254" value="ltz"/>
+    <xsd:enumeration ecore:value="255" value="lua"/>
+    <xsd:enumeration ecore:value="256" value="lub"/>
+    <xsd:enumeration ecore:value="257" value="lug"/>
+    <xsd:enumeration ecore:value="258" value="lui"/>
+    <xsd:enumeration ecore:value="259" value="lun"/>
+    <xsd:enumeration ecore:value="260" value="luo"/>
+    <xsd:enumeration ecore:value="261" value="lus"/>
+    <xsd:enumeration ecore:value="262" value="mkd"/>
+    <xsd:enumeration ecore:value="263" value="mad"/>
+    <xsd:enumeration ecore:value="264" value="mag"/>
+    <xsd:enumeration ecore:value="265" value="mah"/>
+    <xsd:enumeration ecore:value="266" value="mai"/>
+    <xsd:enumeration ecore:value="267" value="mak"/>
+    <xsd:enumeration ecore:value="268" value="mal"/>
+    <xsd:enumeration ecore:value="269" value="man"/>
+    <xsd:enumeration ecore:value="270" value="mri"/>
+    <xsd:enumeration ecore:value="271" value="map"/>
+    <xsd:enumeration ecore:value="272" value="mar"/>
+    <xsd:enumeration ecore:value="273" value="mas"/>
+    <xsd:enumeration ecore:value="274" value="msa"/>
+    <xsd:enumeration ecore:value="275" value="mdf"/>
+    <xsd:enumeration ecore:value="276" value="mdr"/>
+    <xsd:enumeration ecore:value="277" value="men"/>
+    <xsd:enumeration ecore:value="278" value="mga"/>
+    <xsd:enumeration ecore:value="279" value="mic"/>
+    <xsd:enumeration ecore:value="280" value="min"/>
+    <xsd:enumeration ecore:value="281" value="mis"/>
+    <xsd:enumeration ecore:value="282" value="mkh"/>
+    <xsd:enumeration ecore:value="283" value="mlg"/>
+    <xsd:enumeration ecore:value="284" value="mlt"/>
+    <xsd:enumeration ecore:value="285" value="mnc"/>
+    <xsd:enumeration ecore:value="286" value="mni"/>
+    <xsd:enumeration ecore:value="287" value="mno"/>
+    <xsd:enumeration ecore:value="288" value="moh"/>
+    <xsd:enumeration ecore:value="289" value="mon"/>
+    <xsd:enumeration ecore:value="290" value="mos"/>
+    <xsd:enumeration ecore:value="291" value="mul"/>
+    <xsd:enumeration ecore:value="292" value="mun"/>
+    <xsd:enumeration ecore:value="293" value="mus"/>
+    <xsd:enumeration ecore:value="294" value="mwl"/>
+    <xsd:enumeration ecore:value="295" value="mwr"/>
+    <xsd:enumeration ecore:value="296" value="myn"/>
+    <xsd:enumeration ecore:value="297" value="myv"/>
+    <xsd:enumeration ecore:value="298" value="nah"/>
+    <xsd:enumeration ecore:value="299" value="nai"/>
+    <xsd:enumeration ecore:value="300" value="nap"/>
+    <xsd:enumeration ecore:value="301" value="nau"/>
+    <xsd:enumeration ecore:value="302" value="nav"/>
+    <xsd:enumeration ecore:value="303" value="nbl"/>
+    <xsd:enumeration ecore:value="304" value="nde"/>
+    <xsd:enumeration ecore:value="305" value="ndo"/>
+    <xsd:enumeration ecore:value="306" value="nds"/>
+    <xsd:enumeration ecore:value="307" value="nep"/>
+    <xsd:enumeration ecore:value="308" value="new"/>
+    <xsd:enumeration ecore:value="309" value="nia"/>
+    <xsd:enumeration ecore:value="310" value="nic"/>
+    <xsd:enumeration ecore:value="311" value="niu"/>
+    <xsd:enumeration ecore:value="312" value="nno"/>
+    <xsd:enumeration ecore:value="313" value="nob"/>
+    <xsd:enumeration ecore:value="314" value="nog"/>
+    <xsd:enumeration ecore:value="315" value="non"/>
+    <xsd:enumeration ecore:value="316" value="nor"/>
+    <xsd:enumeration ecore:value="317" value="nqo"/>
+    <xsd:enumeration ecore:value="318" value="nso"/>
+    <xsd:enumeration ecore:value="319" value="nub"/>
+    <xsd:enumeration ecore:value="320" value="nwc"/>
+    <xsd:enumeration ecore:value="321" value="nya"/>
+    <xsd:enumeration ecore:value="322" value="nym"/>
+    <xsd:enumeration ecore:value="323" value="nyn"/>
+    <xsd:enumeration ecore:value="324" value="nyo"/>
+    <xsd:enumeration ecore:value="325" value="nzi"/>
+    <xsd:enumeration ecore:value="326" value="oci"/>
+    <xsd:enumeration ecore:value="327" value="oji"/>
+    <xsd:enumeration ecore:value="328" value="ori"/>
+    <xsd:enumeration ecore:value="329" value="orm"/>
+    <xsd:enumeration ecore:value="330" value="osa"/>
+    <xsd:enumeration ecore:value="331" value="oss"/>
+    <xsd:enumeration ecore:value="332" value="ota"/>
+    <xsd:enumeration ecore:value="333" value="oto"/>
+    <xsd:enumeration ecore:value="334" value="paa"/>
+    <xsd:enumeration ecore:value="335" value="pag"/>
+    <xsd:enumeration ecore:value="336" value="pal"/>
+    <xsd:enumeration ecore:value="337" value="pam"/>
+    <xsd:enumeration ecore:value="338" value="pan"/>
+    <xsd:enumeration ecore:value="339" value="pap"/>
+    <xsd:enumeration ecore:value="340" value="pau"/>
+    <xsd:enumeration ecore:value="341" value="peo"/>
+    <xsd:enumeration ecore:value="342" value="fas"/>
+    <xsd:enumeration ecore:value="343" value="phi"/>
+    <xsd:enumeration ecore:value="344" value="phn"/>
+    <xsd:enumeration ecore:value="345" value="pli"/>
+    <xsd:enumeration ecore:value="346" value="pol"/>
+    <xsd:enumeration ecore:value="347" value="pon"/>
+    <xsd:enumeration ecore:value="348" value="por"/>
+    <xsd:enumeration ecore:value="349" value="pra"/>
+    <xsd:enumeration ecore:value="350" value="pro"/>
+    <xsd:enumeration ecore:value="351" value="pus"/>
+    <xsd:enumeration ecore:value="352" value="que"/>
+    <xsd:enumeration ecore:value="353" value="raj"/>
+    <xsd:enumeration ecore:value="354" value="rap"/>
+    <xsd:enumeration ecore:value="355" value="rar"/>
+    <xsd:enumeration ecore:value="356" value="roa"/>
+    <xsd:enumeration ecore:value="357" value="roh"/>
+    <xsd:enumeration ecore:value="358" value="rom"/>
+    <xsd:enumeration ecore:value="359" value="ron"/>
+    <xsd:enumeration ecore:value="360" value="run"/>
+    <xsd:enumeration ecore:value="361" value="rup"/>
+    <xsd:enumeration ecore:value="362" value="rus"/>
+    <xsd:enumeration ecore:value="363" value="sad"/>
+    <xsd:enumeration ecore:value="364" value="sag"/>
+    <xsd:enumeration ecore:value="365" value="sah"/>
+    <xsd:enumeration ecore:value="366" value="sai"/>
+    <xsd:enumeration ecore:value="367" value="sal"/>
+    <xsd:enumeration ecore:value="368" value="sam"/>
+    <xsd:enumeration ecore:value="369" value="san"/>
+    <xsd:enumeration ecore:value="370" value="sas"/>
+    <xsd:enumeration ecore:value="371" value="sat"/>
+    <xsd:enumeration ecore:value="372" value="scn"/>
+    <xsd:enumeration ecore:value="373" value="sco"/>
+    <xsd:enumeration ecore:value="374" value="sel"/>
+    <xsd:enumeration ecore:value="375" value="sem"/>
+    <xsd:enumeration ecore:value="376" value="sga"/>
+    <xsd:enumeration ecore:value="377" value="sgn"/>
+    <xsd:enumeration ecore:value="378" value="shn"/>
+    <xsd:enumeration ecore:value="379" value="sid"/>
+    <xsd:enumeration ecore:value="380" value="sin"/>
+    <xsd:enumeration ecore:value="381" value="sio"/>
+    <xsd:enumeration ecore:value="382" value="sit"/>
+    <xsd:enumeration ecore:value="383" value="sla"/>
+    <xsd:enumeration ecore:value="384" value="slk"/>
+    <xsd:enumeration ecore:value="385" value="slv"/>
+    <xsd:enumeration ecore:value="386" value="sma"/>
+    <xsd:enumeration ecore:value="387" value="sme"/>
+    <xsd:enumeration ecore:value="388" value="smi"/>
+    <xsd:enumeration ecore:value="389" value="smj"/>
+    <xsd:enumeration ecore:value="390" value="smn"/>
+    <xsd:enumeration ecore:value="391" value="smo"/>
+    <xsd:enumeration ecore:value="392" value="sms"/>
+    <xsd:enumeration ecore:value="393" value="sna"/>
+    <xsd:enumeration ecore:value="394" value="snd"/>
+    <xsd:enumeration ecore:value="395" value="snk"/>
+    <xsd:enumeration ecore:value="396" value="sog"/>
+    <xsd:enumeration ecore:value="397" value="som"/>
+    <xsd:enumeration ecore:value="398" value="son"/>
+    <xsd:enumeration ecore:value="399" value="sot"/>
+    <xsd:enumeration ecore:value="400" value="spa"/>
+    <xsd:enumeration ecore:value="401" value="srd"/>
+    <xsd:enumeration ecore:value="402" value="srn"/>
+    <xsd:enumeration ecore:value="403" value="srp"/>
+    <xsd:enumeration ecore:value="404" value="srr"/>
+    <xsd:enumeration ecore:value="405" value="ssa"/>
+    <xsd:enumeration ecore:value="406" value="ssw"/>
+    <xsd:enumeration ecore:value="407" value="suk"/>
+    <xsd:enumeration ecore:value="408" value="sun"/>
+    <xsd:enumeration ecore:value="409" value="sus"/>
+    <xsd:enumeration ecore:value="410" value="sux"/>
+    <xsd:enumeration ecore:value="411" value="swa"/>
+    <xsd:enumeration ecore:value="412" value="swe"/>
+    <xsd:enumeration ecore:value="413" value="syc"/>
+    <xsd:enumeration ecore:value="414" value="syr"/>
+    <xsd:enumeration ecore:value="415" value="tah"/>
+    <xsd:enumeration ecore:value="416" value="tai"/>
+    <xsd:enumeration ecore:value="417" value="tam"/>
+    <xsd:enumeration ecore:value="418" value="tat"/>
+    <xsd:enumeration ecore:value="419" value="tel"/>
+    <xsd:enumeration ecore:value="420" value="tem"/>
+    <xsd:enumeration ecore:value="421" value="ter"/>
+    <xsd:enumeration ecore:value="422" value="tet"/>
+    <xsd:enumeration ecore:value="423" value="tgk"/>
+    <xsd:enumeration ecore:value="424" value="tgl"/>
+    <xsd:enumeration ecore:value="425" value="tha"/>
+    <xsd:enumeration ecore:value="426" value="bod"/>
+    <xsd:enumeration ecore:value="427" value="tig"/>
+    <xsd:enumeration ecore:value="428" value="tir"/>
+    <xsd:enumeration ecore:value="429" value="tiv"/>
+    <xsd:enumeration ecore:value="430" value="tkl"/>
+    <xsd:enumeration ecore:value="431" value="tlh"/>
+    <xsd:enumeration ecore:value="432" value="tli"/>
+    <xsd:enumeration ecore:value="433" value="tmh"/>
+    <xsd:enumeration ecore:value="434" value="tog"/>
+    <xsd:enumeration ecore:value="435" value="ton"/>
+    <xsd:enumeration ecore:value="436" value="tpi"/>
+    <xsd:enumeration ecore:value="437" value="tsi"/>
+    <xsd:enumeration ecore:value="438" value="tsn"/>
+    <xsd:enumeration ecore:value="439" value="tso"/>
+    <xsd:enumeration ecore:value="440" value="tuk"/>
+    <xsd:enumeration ecore:value="441" value="tum"/>
+    <xsd:enumeration ecore:value="442" value="tup"/>
+    <xsd:enumeration ecore:value="443" value="tur"/>
+    <xsd:enumeration ecore:value="444" value="tut"/>
+    <xsd:enumeration ecore:value="445" value="tvl"/>
+    <xsd:enumeration ecore:value="446" value="twi"/>
+    <xsd:enumeration ecore:value="447" value="tyv"/>
+    <xsd:enumeration ecore:value="448" value="udm"/>
+    <xsd:enumeration ecore:value="449" value="uga"/>
+    <xsd:enumeration ecore:value="450" value="uig"/>
+    <xsd:enumeration ecore:value="451" value="ukr"/>
+    <xsd:enumeration ecore:value="452" value="umb"/>
+    <xsd:enumeration ecore:value="453" value="und"/>
+    <xsd:enumeration ecore:value="454" value="urd"/>
+    <xsd:enumeration ecore:value="455" value="uzb"/>
+    <xsd:enumeration ecore:value="456" value="vai"/>
+    <xsd:enumeration ecore:value="457" value="ven"/>
+    <xsd:enumeration ecore:value="458" value="vie"/>
+    <xsd:enumeration ecore:value="459" value="vol"/>
+    <xsd:enumeration ecore:value="460" value="vot"/>
+    <xsd:enumeration ecore:value="461" value="wak"/>
+    <xsd:enumeration ecore:value="462" value="wal"/>
+    <xsd:enumeration ecore:value="463" value="war"/>
+    <xsd:enumeration ecore:value="464" value="was"/>
+    <xsd:enumeration ecore:value="465" value="cym"/>
+    <xsd:enumeration ecore:value="466" value="wen"/>
+    <xsd:enumeration ecore:value="467" value="wln"/>
+    <xsd:enumeration ecore:value="468" value="wol"/>
+    <xsd:enumeration ecore:value="469" value="xal"/>
+    <xsd:enumeration ecore:value="470" value="xho"/>
+    <xsd:enumeration ecore:value="471" value="yao"/>
+    <xsd:enumeration ecore:value="472" value="yap"/>
+    <xsd:enumeration ecore:value="473" value="yid"/>
+    <xsd:enumeration ecore:value="474" value="yor"/>
+    <xsd:enumeration ecore:value="475" value="ypk"/>
+    <xsd:enumeration ecore:value="476" value="zap"/>
+    <xsd:enumeration ecore:value="477" value="zbl"/>
+    <xsd:enumeration ecore:value="478" value="zen"/>
+    <xsd:enumeration ecore:value="479" value="zha"/>
+    <xsd:enumeration ecore:value="480" value="znd"/>
+    <xsd:enumeration ecore:value="481" value="zul"/>
+    <xsd:enumeration ecore:value="482" value="zun"/>
+    <xsd:enumeration ecore:value="483" value="zxx"/>
+    <xsd:enumeration ecore:value="484" value="zza"/>
+  </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType ecore:name="Original_Content_Type" name="Original_Content_Type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="text" />
+      <xsd:enumeration value="image" />
+      <xsd:enumeration value="table" />
+      <xsd:enumeration value="audio" />
+      <xsd:enumeration value="video" />
+      <xsd:enumeration value="multimedia" />
+      <xsd:enumeration value="specialized_notation" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

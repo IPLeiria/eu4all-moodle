@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/adaptable/db" VERSION="20101210" COMMENT="XMLDB file for Adaptable module"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="adaptable" COMMENT="Each record is one adaptable resource and its config data" NEXT="adaptable_relations">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="course"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="course" NEXT="intro"/>
+        <FIELD NAME="intro" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" PREVIOUS="name" NEXT="introformat"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="intro" NEXT="display"/>
+        <FIELD NAME="display" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="introformat" NEXT="displayoptions"/>
+        <FIELD NAME="displayoptions" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" PREVIOUS="display" NEXT="timemodified"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="displayoptions"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="adaptable_relations" COMMENT="adaptable_relations table" PREVIOUS="adaptable">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="adaptable_id"/>
+        <FIELD NAME="adaptable_id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="resource_id"/>
+        <FIELD NAME="resource_id" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="adaptable_id" NEXT="type"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="11" NOTNULL="true" DEFAULT="default" SEQUENCE="false" PREVIOUS="resource_id" NEXT="original_mode"/>
+        <FIELD NAME="original_mode" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" PREVIOUS="type" NEXT="original_content_type"/>
+        <FIELD NAME="original_content_type" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="original_mode" NEXT="adaptation_type"/>
+        <FIELD NAME="adaptation_type" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="original_content_type" NEXT="representation_form"/>
+        <FIELD NAME="representation_form" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="adaptation_type" NEXT="original_access_mode"/>
+        <FIELD NAME="original_access_mode" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="representation_form"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="mdl_adaprela_ada_ix" UNIQUE="false" FIELDS="adaptable_id" NEXT="mdl_resource_id_ix"/>
+		<INDEX NAME="mdl_resource_id_ix" UNIQUE="true" FIELDS="resource_id" PREVIOUS="mdl_adaprela_ada_ix"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
