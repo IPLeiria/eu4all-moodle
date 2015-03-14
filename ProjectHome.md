@@ -1,1 +1,0 @@
-The IPL-EU4ALL component provides functionalities for the Moodle Virtual Learning Environment to use the User Model, Metadata Repository and Content Personalization capabilities of EU4ALL framework, enhancing the student experience by selecting the resources more suitable for the user accessibility preferences when using a Moodle system.
